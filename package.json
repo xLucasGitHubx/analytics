@@ -1,0 +1,23 @@
+{
+  "name": "lovebox-analytics",
+  "version": "1.0.0",
+  "description": "Lovebox — module analytics : collecte GA4/GSC/Shopify, snapshots mensuels, rapport unique (MD + HTML + Slack) avec agents Claude. Lecture seule, aucune action d'écriture sur les sites.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "doctor": "node src/index.js doctor",
+    "collect": "node src/index.js collect",
+    "backfill": "node src/index.js backfill",
+    "report": "node src/index.js report",
+    "monthly": "node src/index.js monthly",
+    "test": "node --test test/*.test.js",
+    "auth-google": "node scripts/auth-google.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.104.1",
+    "dotenv": "^17.4.2",
+    "google-auth-library": "^10.7.0"
+  }
+}

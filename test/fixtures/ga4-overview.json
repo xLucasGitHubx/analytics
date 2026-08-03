@@ -1,0 +1,7 @@
+[
+  { "hostName": "en.lovebox.love", "sessions": 1200, "totalRevenue": 8000 },
+  { "hostName": "fr.lovebox.love", "sessions": 900, "totalRevenue": 6000 },
+  { "hostName": "buy.lovebox.love", "sessions": 300, "totalRevenue": 0 },
+  { "hostName": "ca.lovebox.love", "sessions": 40, "totalRevenue": 500 },
+  { "hostName": "www.kickstarter.com", "sessions": 60, "totalRevenue": 0 }
+]

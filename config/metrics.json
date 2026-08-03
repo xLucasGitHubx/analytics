@@ -1,0 +1,89 @@
+{
+  "_note": "Catalogue déclaratif des rapports GA4 (SPEC §6). `ga4.js` lit cette config, construit le body runReport, et applique la sonde de métriques (retire un champ fautif et réessaie sur 400) sans jamais planter pour un rapport secondaire. `orderBy.type` vaut 'metric' ou 'dimension'. `filter: \"llmSources\"` déclenche un dimensionFilter orGroup CONTAINS sur sessionSource à partir de llm-sources.json.",
+  "reports": {
+    "overview": {
+      "dimensions": ["hostName"],
+      "metrics": [
+        "sessions", "totalUsers", "newUsers", "engagedSessions", "engagementRate",
+        "averageSessionDuration", "bounceRate", "screenPageViews", "totalRevenue", "transactions"
+      ],
+      "limit": 50
+    },
+    "channelsLastTouch": {
+      "dimensions": ["hostName", "sessionDefaultChannelGroup"],
+      "metrics": ["sessions", "totalUsers", "totalRevenue", "transactions"],
+      "limit": 200
+    },
+    "channelsFirstTouch": {
+      "dimensions": ["hostName", "firstUserDefaultChannelGroup"],
+      "metrics": ["sessions", "totalUsers", "totalRevenue"],
+      "limit": 200
+    },
+    "sourceMedium": {
+      "dimensions": ["hostName", "sessionSourceMedium"],
+      "metrics": ["sessions", "totalRevenue"],
+      "limit": 150,
+      "orderBy": { "type": "metric", "name": "sessions", "desc": true }
+    },
+    "campaigns": {
+      "dimensions": ["hostName", "sessionCampaignName"],
+      "metrics": ["sessions", "totalRevenue"],
+      "limit": 100,
+      "orderBy": { "type": "metric", "name": "sessions", "desc": true }
+    },
+    "landingPages": {
+      "dimensions": ["hostName", "landingPage"],
+      "metrics": ["sessions", "engagementRate", "totalRevenue", "transactions"],
+      "limit": 300,
+      "orderBy": { "type": "metric", "name": "sessions", "desc": true }
+    },
+    "pages": {
+      "dimensions": ["hostName", "pagePath"],
+      "metrics": ["screenPageViews", "totalUsers", "userEngagementDuration"],
+      "limit": 500,
+      "orderBy": { "type": "metric", "name": "screenPageViews", "desc": true }
+    },
+    "ecommerce": {
+      "dimensions": ["hostName"],
+      "metrics": [
+        "itemsViewed", "addToCarts", "checkouts", "ecommercePurchases",
+        "purchaseRevenue", "averagePurchaseRevenue"
+      ],
+      "limit": 50
+    },
+    "products": {
+      "dimensions": ["itemName"],
+      "metrics": ["itemsViewed", "itemsPurchased", "itemRevenue"],
+      "limit": 100,
+      "orderBy": { "type": "metric", "name": "itemRevenue", "desc": true }
+    },
+    "geo": {
+      "dimensions": ["hostName", "country"],
+      "metrics": ["sessions", "totalRevenue"],
+      "limit": 100,
+      "orderBy": { "type": "metric", "name": "sessions", "desc": true }
+    },
+    "devices": {
+      "dimensions": ["hostName", "deviceCategory"],
+      "metrics": ["sessions", "engagementRate", "totalRevenue"],
+      "limit": 50
+    },
+    "newVsReturning": {
+      "dimensions": ["hostName", "newVsReturning"],
+      "metrics": ["sessions", "totalRevenue"],
+      "limit": 50
+    },
+    "llm": {
+      "dimensions": ["hostName", "sessionSource", "landingPage"],
+      "metrics": ["sessions", "totalRevenue"],
+      "limit": 5000,
+      "filter": "llmSources"
+    },
+    "daily": {
+      "dimensions": ["date", "hostName"],
+      "metrics": ["sessions", "totalRevenue"],
+      "limit": 5000,
+      "orderBy": { "type": "dimension", "name": "date", "desc": false }
+    }
+  }
+}

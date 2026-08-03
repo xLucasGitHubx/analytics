@@ -1,0 +1,6 @@
+[
+  { "query": "lovebox avis", "clicks": 40, "impressions": 300, "ctr": 0.133, "position": 2.1 },
+  { "query": "cadeau longue distance", "clicks": 12, "impressions": 900, "ctr": 0.013, "position": 8.4 },
+  { "query": "boite a message connectee", "clicks": 3, "impressions": 1200, "ctr": 0.0025, "position": 9.1 },
+  { "query": "nouvelle requete printemps", "clicks": 6, "impressions": 150, "ctr": 0.04, "position": 6.5 }
+]

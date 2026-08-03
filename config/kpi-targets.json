@@ -1,0 +1,16 @@
+{
+  "_note": "Objectifs déclaratifs par KPI pour la colorisation des tuiles du rapport (étape 2). Comparaison faite sur le delta % Mois-1 (MoM) de chaque KPI : au-dessus de `green` → vert, entre `warn` et `green` → orange, en dessous de `warn` → rouge. `direction` indique le sens souhaité (`up` = une hausse est positive, `down` = une baisse est positive, ex. bounceRate).",
+  "kpis": {
+    "totalUsers": { "direction": "up", "green": 0, "warn": -10 },
+    "sessions": { "direction": "up", "green": 0, "warn": -10 },
+    "totalRevenue": { "direction": "up", "green": 0, "warn": -10 },
+    "transactions": { "direction": "up", "green": 0, "warn": -10 },
+    "aov": { "direction": "up", "green": 0, "warn": -5 },
+    "conversionRate": { "direction": "up", "green": 0, "warn": -10 },
+    "engagementRate": { "direction": "up", "green": 0, "warn": -10 },
+    "bounceRate": { "direction": "down", "green": 0, "warn": 10 },
+    "gscClicks": { "direction": "up", "green": 0, "warn": -10 },
+    "gscImpressions": { "direction": "up", "green": 0, "warn": -10 },
+    "gscPosition": { "direction": "down", "green": 0, "warn": 5 }
+  }
+}

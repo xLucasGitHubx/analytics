@@ -1,0 +1,12 @@
+{
+  "_note": "Table de correspondance entre le canal de vente technique renvoyé par Shopify (`order.source_name`, champ `byChannel` de `aggregateOrders` dans src/lib/shopify.js) et un libellé lisible pour le rapport (§4 « Commandes réelles (Shopify) »). Modifiable ici sans toucher au code — voir `channelLabel()` dans `src/lib/shopify.js`. Un canal absent de cette table et purement numérique (identifiant d'app custom installée sur la boutique, ex. `9764908`) est traduit automatiquement en « Application n°<id> » ; un canal texte absent de la table est affiché tel quel (déjà lisible, ex. le nom d'une app du Shopify App Store comme « 1800 Flowers »).",
+  "labels": {
+    "web": "Boutique en ligne",
+    "subscription_contract_checkout_one": "Abonnement",
+    "shopify_draft_order": "Commande manuelle",
+    "amazon": "Amazon",
+    "pos": "Point de vente",
+    "iphone": "Application mobile Shopify (iOS)",
+    "android": "Application mobile Shopify (Android)"
+  }
+}

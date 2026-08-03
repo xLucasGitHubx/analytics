@@ -1,0 +1,12 @@
+{
+  "_note": "Patterns (regex, insensibles à la casse) matchés sur les landing pages / pagePath GA4 pour détecter le bruit de tracking (pixels, paramètres, sandbox…). Repris de `Suppression BLOG Useless/config/thresholds.json` (urlExcludePatterns) + ajout de /web-pixels@ (cf. SPEC §2, jusqu'à 1 145 sessions polluées observées).",
+  "patterns": [
+    "/web-pixels@",
+    "\\?",
+    "%",
+    "cdn-cgi",
+    "translate.goog",
+    "//blogs",
+    "sandbox"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "_note": "Registre des sites Lovebox pour le module analytics. `currency` pour EN/FR/EU est désormais celle réellement renvoyée par l'API Shopify (`sources.shopify.current.<clé>.data.currency`, vérifiée sur le snapshot 2026-06 : EN=USD, FR=EUR, EU=EUR) — Shopify fait autorité, ce champ n'est plus une hypothèse pour ces 3 boutiques. Pour BUY/BOUTIQUE/STORE/CA/KEEP (pas de boutique Shopify propre), `currency` reste une hypothèse (EUR par défaut) à confirmer si besoin — aucun code ne dépend d'une valeur exacte pour ces sites, c'est purement informatif (affichage). Les entrées `discovered:true` (ca, keep) ont été vues dans GA4 (hostName) sans être déclarées dans le registre existant de `Suppression BLOG Useless/config/sites.json` — leur `type` et `blogPathPrefix` sont des hypothèses à vérifier ; leur propriété Search Console est peut-être absente ou différente, le collecteur `gsc.js` doit le tolérer (warn, pas d'échec).",
+  "ga4ReportingCurrency": "EUR",
+  "_ga4ReportingCurrencyNote": "GA4 (une seule propriété, `GA4_PROPERTY_ID`) reporte le revenu dans UNE SEULE devise pour tout le compte (paramètre « Devise de génération de rapports » de la propriété), indépendamment de la devise réelle de chaque boutique Shopify. Valeur supposée ici (EUR, cohérente avec les boutiques FR/EU) — à confirmer dans GA4 > Admin > Paramètres de la propriété > Devise de génération de rapports. Utilisée uniquement par `quality.js` (contrôle #4, écart GA4 ↔ Shopify) pour neutraliser la comparaison sur une boutique dont la devise Shopify réelle diffère de cette devise GA4 supposée (ex. EN en USD) plutôt que de comparer silencieusement des devises différentes.",
+  "sites": [
+    {
+      "key": "EN",
+      "type": "editorial",
+      "host": "en.lovebox.love",
+      "gscSiteUrl": "https://en.lovebox.love/",
+      "currency": "USD",
+      "blogPathPrefix": "/blogs/news/",
+      "shopifyEnv": "EN"
+    },
+    {
+      "key": "FR",
+      "type": "editorial",
+      "host": "fr.lovebox.love",
+      "gscSiteUrl": "https://fr.lovebox.love/",
+      "currency": "EUR",
+      "blogPathPrefix": "/blogs/news/",
+      "shopifyEnv": "FR"
+    },
+    {
+      "key": "EU",
+      "type": "editorial",
+      "host": "eu.lovebox.love",
+      "gscSiteUrl": "https://eu.lovebox.love/",
+      "currency": "EUR",
+      "blogPathPrefix": "/blogs/news/",
+      "shopifyEnv": "EU"
+    },
+    {
+      "key": "BUY",
+      "type": "buy",
+      "host": "buy.lovebox.love",
+      "gscSiteUrl": "https://buy.lovebox.love/",
+      "currency": "EUR"
+    },
+    {
+      "key": "BOUTIQUE",
+      "type": "buy",
+      "host": "boutique.lovebox.love",
+      "gscSiteUrl": "https://boutique.lovebox.love/",
+      "currency": "EUR"
+    },
+    {
+      "key": "STORE",
+      "type": "buy",
+      "host": "store.lovebox.love",
+      "gscSiteUrl": "https://store.lovebox.love/",
+      "currency": "EUR"
+    },
+    {
+      "key": "CA",
+      "type": "editorial",
+      "host": "ca.lovebox.love",
+      "gscSiteUrl": "https://ca.lovebox.love/",
+      "currency": "EUR",
+      "blogPathPrefix": "/blogs/news/",
+      "discovered": true,
+      "note": "Host vu dans GA4 (data/history/*_weekly.json de Suppression BLOG Useless) mais absent du registre existant. Type/blogPathPrefix supposés par analogie avec en/fr/eu (même convention de host à 2 lettres) — à confirmer. La propriété Search Console correspondante est peut-être absente : gsc.js doit traiter un échec sur ce site comme un warn, jamais comme une erreur globale."
+    },
+    {
+      "key": "KEEP",
+      "type": "buy",
+      "host": "keep.lovebox.love",
+      "gscSiteUrl": "https://keep.lovebox.love/",
+      "currency": "EUR",
+      "discovered": true,
+      "note": "Host vu dans GA4 sans être déclaré. D'après l'historique, ce host se comporte comme une page de capture (landing '/', '/thanks') pour un nouveau produit ('Keep', évoqué via du trafic Kickstarter), en Paid Social, revenu GA4 à 0 — traité ici comme type 'buy' (pas de blog) par hypothèse, à confirmer. Propriété Search Console peut-être absente : à tolérer (warn, pas d'échec)."
+    }
+  ]
+}

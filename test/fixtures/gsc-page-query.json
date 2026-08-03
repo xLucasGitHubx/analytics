@@ -1,0 +1,5 @@
+[
+  { "page": "https://fr.lovebox.love/blogs/news/article-a", "query": "cadeau longue distance", "clicks": 10, "impressions": 300, "position": 6 },
+  { "page": "https://fr.lovebox.love/products/lovebox", "query": "cadeau longue distance", "clicks": 5, "impressions": 200, "position": 9 },
+  { "page": "https://fr.lovebox.love/blogs/news/article-b", "query": "boite a message connectee", "clicks": 3, "impressions": 1200, "position": 9.1 }
+]
